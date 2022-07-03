@@ -21,6 +21,8 @@ sheetNames = wtFile.sheetnames
 for sheetName in sheetNames:
     ws = wtFile.get_sheet_by_name(sheetName)
     posfix = ws.cell(ws.max_row, 1).value
+    if isinstance(posfix, str):
+        posfix = posfix.replace(' ', '')
     cfg["Sheets"].append({
         "name": sheetName,
         "prefix_lines": "~请填写前缀说明行数，并确认终止符号是否正确",

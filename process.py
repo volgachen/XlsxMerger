@@ -36,7 +36,7 @@ for isheet in cfg["Sheets"]:
     }
     wtPointer[isheet["name"]] = isheet["prefix_lines"]
 
-print(f"Info: 共有{len(cfg['Files'])}个表格待处理")
+print(f"Info: 共有{len(cfg['Files'])}个文件待处理")
 for fileName in cfg["Files"]:
     iFile = load_workbook(fileName)
     fileSheetNames = iFile.sheetnames
@@ -53,7 +53,7 @@ for fileName in cfg["Files"]:
                 if idx < rdpt:
                     continue
                 # 1 对应 string
-                if irow[0].value == sheetDict[sheetName]["posfix_string"]:
+                if isinstance(irow[0].value, str) and irow[0].value.replace(" ", "") == sheetDict[sheetName]["posfix_string"]:
                     meetEnd=True
                     break
                 xlWriteLine(wtSheet, irow, wtPointer[sheetName])
