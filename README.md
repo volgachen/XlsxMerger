@@ -1,5 +1,5 @@
 # XlsxMerger：一款好用的excel合并脚本插件
-*近期将提供exe可执行文件下载*
+.exe 可执行文件下载地址：[v0.1.0](https://github.com/volgachen/XlsxMerger/releases/tag/v0.1.0)
 
 #### 【最新说明】
 
@@ -46,3 +46,17 @@
 ## 更新日志
 
 - 2022-07-08 修复了处理公式单元格出现的错误，现在合并时仅合并数值不合并公式。
+
+## 代码打包
+
+1、生成`version file`。
+
+`create-version-file [YAML_IN_FILE] --outfile [TXT_OUT_FILE] --version [VERSION]`
+
+2、使用pyinstaller打包
+
+`pyinstaller -F -w --version-file [TXT_OUT_FILE] [PYTHON_FILE]`
+
+## License
+
+Released under MIT License.

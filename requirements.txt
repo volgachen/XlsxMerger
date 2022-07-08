@@ -1,2 +1,4 @@
 openpyxl
 pyyaml
+pyinstaller
+pyinstaller-versionfile
