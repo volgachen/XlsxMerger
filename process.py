@@ -1,4 +1,3 @@
-import xlrd
 from openpyxl import load_workbook
 import argparse
 from config import get_config
@@ -26,7 +25,7 @@ args = parser.parse_args()
 
 cfg = get_config(args.cfg)
 
-wtFile = load_workbook(cfg["Template"])
+wtFile = load_workbook(cfg["Template"], data_only=True)
 wtPointer = {}
 sheetDict = {}
 for isheet in cfg["Sheets"]:
@@ -38,7 +37,7 @@ for isheet in cfg["Sheets"]:
 
 print(f"Info: 共有{len(cfg['Files'])}个文件待处理")
 for fileName in cfg["Files"]:
-    iFile = load_workbook(fileName)
+    iFile = load_workbook(fileName, data_only=True)
     fileSheetNames = iFile.sheetnames
     for sheetInfo in cfg["Sheets"]:
         sheetName = sheetInfo["name"]
